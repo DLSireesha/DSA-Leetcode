@@ -20,3 +20,4 @@ public:
         return ans;
     }
 };
+//for video check binary magic channel
