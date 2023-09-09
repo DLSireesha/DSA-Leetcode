@@ -109,8 +109,7 @@ class Solution
         if(root==NULL) return 0;
         vector<int> v;
         inorder(root,v);
-        int n=v.size();
-        return v[n-K];
+        return v[v.size()-K];
     }
 };
 
