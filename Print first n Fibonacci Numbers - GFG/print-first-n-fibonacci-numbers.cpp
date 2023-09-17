@@ -11,21 +11,18 @@ using namespace std;
 class Solution
 {
     public:
-    long long P(int n,vector<long long>& dp){
-        if(n==0 || n==1) return 1;
-        if(dp[n]!=-1) return dp[n];
-        return dp[n]=P(n-1,dp)+P(n-2,dp);
-    }
     //Function to return list containing first n fibonacci numbers.
     vector<long long> printFibb(int n) 
     {
         //code here
-        vector<long long> dp(n,-1);
-        vector<long long> ans;
-        for(int i=0;i<n;i++){
-            ans.push_back(P(i,dp));
+        vector<long long> dp;
+        dp.push_back(1);
+        if(n==1) return dp;
+        dp.push_back(1);
+        for(int i=2;i<n;i++){
+            dp.push_back(dp[i-1]+dp[i-2]);
         }
-        return ans;
+        return dp;
     }
 };
 
