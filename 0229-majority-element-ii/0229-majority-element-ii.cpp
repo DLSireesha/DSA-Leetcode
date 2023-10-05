@@ -3,9 +3,9 @@ public:
     vector<int> majorityElement(vector<int>& nums) {
         int n=nums.size();
         int x=floor(n/3);
-        sort(nums.begin(),nums.end());
+        //sort(nums.begin(),nums.end());
         vector<int> v;
-        map<int,int> m;
+        unordered_map<int,int> m;
         for(int y:nums){
             m[y]++;
         }
