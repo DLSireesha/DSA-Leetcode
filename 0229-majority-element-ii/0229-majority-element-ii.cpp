@@ -9,9 +9,9 @@ public:
         for(int y:nums){
             m[y]++;
         }
-        for(auto it:m){
-            if(it.second>x){
-                v.push_back(it.first);
+        for(auto it=m.begin();it!=m.end();it++){
+            if(it->second>x){
+                v.push_back(it->first);
             }
         }
         return v;
