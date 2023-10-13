@@ -21,32 +21,29 @@ struct Node {
 class Solution{
 
 public:
-     void traverse(Node* root,int x,int &ans){
+     void traverse(Node* root,int x,int &result){
         if(root==NULL){
             return;
         }
         if(root->data <= x){
-            ans = root->data;
+            result = root->data;
         }
         if(x < root->data){
-            traverse(root->left,x,ans);
+            traverse(root->left,x,result);
         }
         else if(x > root->data){
-            traverse(root->right,x,ans);
+            traverse(root->right,x,result);
         }
         else{
-            ans = x;
+            result = x;
             return ;
         }
         
     }
-
-
     int floor(Node* root, int x) {
-        // Code here
-        int ans = -1;
-        traverse(root,x,ans);
-        return ans;
+        int result= -1;
+        traverse(root,x,result);
+        return result;
     }
 };
 
