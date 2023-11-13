@@ -1,8 +1,4 @@
 class Solution {
-    private:
-    static bool comp(char c,char d){
-        return (int)c<=(int)d;
-    }
 public:
     string sortVowels(string s) {
         int n=s.length();
