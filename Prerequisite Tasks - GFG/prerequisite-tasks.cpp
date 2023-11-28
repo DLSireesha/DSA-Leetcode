@@ -6,34 +6,35 @@ using namespace std;
 class Solution {
 public:
 	bool isPossible(int N,int P, vector<pair<int, int> >& prerequisites) {
-	    // Code here
 	    vector<int> adj[N];
-	    for(auto it:prerequisites){
-	        adj[it.first].push_back(it.second);
+	    for(auto i:prerequisites){
+	        adj[i.first].push_back(i.second);
 	    }
-	    int indegree[N]={0},count=0;
+	    int indegree[N]={0};
 	    for(int i=0;i<N;i++){
-	        for(auto j:adj[i]){
-	        indegree[j]++;}
+	        for(auto x:adj[i]){
+	            indegree[x]++;
+	        }
 	    }
 	    queue<int> q;
-	    vector<int> ans;
+	    int count=0;
 	    for(int i=0;i<N;i++){
 	        if(indegree[i]==0){
-	        q.push(i);
-	    }}
+	            q.push(i);
+	        }
+	    }
 	    while(!q.empty()){
 	        int node=q.front();
 	        q.pop();
-	        ans.push_back(node);
-	        for(auto x:adj[node]){
-	            indegree[x]--;
-	            if(indegree[x]==0){
-	                q.push(x);
+	        count++;
+	        for(auto it:adj[node]){
+	            indegree[it]--;
+	            if(indegree[it]==0){
+	                q.push(it);
 	            }
 	        }
 	    }
-	    if(ans.size()==N) return true;
+	    if(count==N) return true;
 	    return false;
 	}
 };
