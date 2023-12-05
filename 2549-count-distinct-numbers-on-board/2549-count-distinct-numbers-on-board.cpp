@@ -23,3 +23,10 @@ public:
         return v.size()+1;
     }
 };
+
+//or
+//class solution{
+//public:
+//int distinctIntegers(int n){
+//return n-1;}
+//};
