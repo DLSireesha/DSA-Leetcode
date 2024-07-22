@@ -1,16 +1,15 @@
 class Solution {
 public:
     vector<string> sortPeople(vector<string>& names, vector<int>& heights) {
-        vector<int> h=heights;
-        sort(h.begin(),h.end());
-        vector<string> ans;
-        for(int i=h.size()-1;i>=0;i--){
-            for(int j=0;j<h.size();j++){
-                if(h[i]==heights[j]){
-                    ans.push_back(names[j]);
-                }
-            }
+        vector<pair<int,string>> ans;
+        for(int i=0;i<heights.size();i++){
+            ans.push_back({heights[i],names[i]});
         }
-        return ans;
+        sort(ans.rbegin(),ans.rend());
+        vector<string> r;
+        for(int i=0;i<heights.size();i++){
+            r.push_back(ans[i].second);
+        }
+        return r;
     }
 };
