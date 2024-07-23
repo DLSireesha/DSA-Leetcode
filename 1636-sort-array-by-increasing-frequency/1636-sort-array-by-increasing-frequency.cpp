@@ -1,18 +1,24 @@
 class Solution {
 public:
+    static bool cmp(pair<int,int>& a,pair<int,int>& b){
+        return (a.second==b.second)?a.first>b.first:a.second<b.second;
+    }
     vector<int> frequencySort(vector<int>& nums) {
-    unordered_map<int, int> frequency;
-    for (auto c : nums) {
-        frequency[c]++;
-    }
-    sort(nums.begin(), nums.end(), [&](char a, char b) {
-        if (frequency[a] == frequency[b]) {
-            return a > b;
+        map<int,int> m;
+        vector<pair<int,int>> m1;
+        for(auto x:nums){
+            m[x]++;
         }
-        return frequency[a] < frequency[b];
-    });
-
-    return nums;
+        for(auto k:m){
+            m1.push_back(k);
+        }
+        sort(m1.begin(),m1.end(),cmp);
+        vector<int> v;
+        for(auto y:m1){
+            for(int i=0;i<y.second;i++){
+                v.push_back(y.first);
+            }
+        }
+        return v;
     }
-    
 };
